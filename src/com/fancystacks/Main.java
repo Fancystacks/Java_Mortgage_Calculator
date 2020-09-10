@@ -6,13 +6,20 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	final byte MONTHS_OF_YEAR = 12;
-	final byte PERCENT = 100;
+        final byte MONTHS_OF_YEAR = 12;
+        final byte PERCENT = 100;
+
+        int principal = 0;
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Principal Amount: ");
-        int principal = scanner.nextInt();
+        while (true) {
+            System.out.print("Principal Amount (1k to 1M): ");
+            principal = scanner.nextInt();
+            if (principal > 999 && principal < 1000001)
+                break;
+            System.out.println("Please enter a value between 1000 and 1000000");
+        }
 
         System.out.print("Annual Interest Rate: ");
         float annualInterest = scanner.nextFloat();
@@ -27,6 +34,6 @@ public class Main {
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
 
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println("Mortgage: " + mortgageFormatted);
+        System.out.println("Monthly Mortgage: " + mortgageFormatted);
     }
 }
