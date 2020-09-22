@@ -12,29 +12,19 @@ public class Main {
         float annualInterest = 0;
         byte years = 0;
 
-        Scanner scanner = new Scanner(System.in);
-
         // Principal amount if user enters valid number
-        while (true) {
-            System.out.print("Principal Amount (1k to 1M): ");
-            principal = scanner.nextInt();
-            if (principal > 999 && principal < 1000001)
-                break;
-            System.out.println("Please enter a value between 1000 and 1000000");
-        }
+        principal = (int) readNumber("Principal: ", 1000, 1_000_000);
 
         // Payment period calculation upon value entered
-        while (true) {
-            System.out.print("Period (In Years): ");
-            years = scanner.nextByte();
-            if (years >= 1 && years <= 30)
-                break;
-            System.out.println("Please enter a value between 1 and 30");
-}
+        annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+
+        // Years input for payment period
+        years = (byte) readNumber("Period (In Years): ", 1, 30);
 
         double mortgage = calcMortgage(principal, annualInterest, years);
 
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+
         System.out.println("Monthly Mortgage: " + mortgageFormatted);
     }
 
