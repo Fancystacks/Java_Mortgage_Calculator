@@ -23,15 +23,6 @@ public class Main {
             System.out.println("Please enter a value between 1000 and 1000000");
         }
 
-        // Interest rate calculated upon validation
-        while (true) {
-            System.out.print("Annual Interest Rate: ");
-            annualInterest = scanner.nextFloat();
-            if (annualInterest >= 1 && annualInterest <= 31)
-                break;
-            System.out.println("Please enter a value between 1 and 30 ");
-        }
-
         // Payment period calculation upon value entered
         while (true) {
             System.out.print("Period (In Years): ");
@@ -47,6 +38,19 @@ public class Main {
         System.out.println("Monthly Mortgage: " + mortgageFormatted);
     }
 
+    public static double readNumber(String prompt, double min, double max)  {
+        Scanner scanner = new Scanner(System.in);
+        double value;
+        while (true) {
+            System.out.print(prompt);
+            value = scanner.nextFloat();
+            if (value >= min && value <= max)
+                break;
+            System.out.println("Please enter a value between" + min + " and" + max);
+        }
+        return value;
+    }
+
     public static double calcMortgage(
             int principal,
             float annualInterest,
@@ -56,7 +60,7 @@ public class Main {
         final byte PERCENT = 100;
 
         float monthlyInterest = annualInterest / PERCENT / MONTHS_OF_YEAR;
-        float numberOfPayments = years * MONTHS_OF_YEAR;
+        short numberOfPayments = (short)(years * MONTHS_OF_YEAR);
         double mortgage = principal
                 * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
