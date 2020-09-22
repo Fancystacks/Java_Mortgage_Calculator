@@ -8,18 +8,15 @@ public class Main {
     public static void main(String[] args) {
 
 // variables declared for use outside of functions
-        int principal = 0;
-        float annualInterest = 0;
-        byte years = 0;
 
         // Principal amount if user enters valid number
-        principal = (int) readNumber("Principal: ", 1000, 1_000_000);
+        int principal = (int) readNumber("Principal: ", 1000, 1_000_000);
 
         // Payment period calculation upon value entered
-        annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
 
         // Years input for payment period
-        years = (byte) readNumber("Period (In Years): ", 1, 30);
+        byte years = (byte) readNumber("Period (In Years): ", 1, 30);
 
         double mortgage = calcMortgage(principal, annualInterest, years);
 
