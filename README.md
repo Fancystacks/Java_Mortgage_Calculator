@@ -1,11 +1,13 @@
 # Java Mortgage Calculator
 
 # Download:
-- IntelliJ Idea
+- IntelliJ IDEA
 - JDK package from Oracle
 
 # Usage: 
-## Follow prompts to answer mortgage questions
+### Follow system prompts to answer mortgage questions
+
+### (Fields are validated for accurate mortgage principal & percentage)
 
 ![mortgage](https://user-images.githubusercontent.com/38336934/94503309-67ffcd00-01c3-11eb-8847-c92524899543.gif)
 
